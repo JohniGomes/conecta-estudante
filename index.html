@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta Conecta Estudante</title>
+<style>
+  :root{
+    --ink:#1B140B;
+    --paper:#FBF8F2;
+    --paper-2:#FFFFFF;
+    --card:#F6F1E6;
+    --line:#E7DFCC;
+    --muted:#6B6355;
+    --gold:#B3862F;
+    --gold-ink:#8A6720;
+    --dark:#1C140B;
+    --dark-2:#2A2013;
+    --good:#2F7A4F;
+    --bad:#B4432E;
+    /* product-UI tokens (kept distinct from document chrome) */
+    --pnavy:#14213D;
+    --pblue:#1B6FC9;
+    --pteal:#16A398;
+    --pbg:#F3F6FB;
+    --pmuted:#8C9AB8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#F3EEE1;
+      --paper:#15100A;
+      --paper-2:#1E1710;
+      --card:#241B10;
+      --line:#3A2E1B;
+      --muted:#B7AC92;
+      --gold:#D9AE55;
+      --gold-ink:#EFC873;
+      --dark:#0E0A05;
+      --dark-2:#1A140C;
+      --good:#5FBE85;
+      --bad:#E0836B;
+      --pbg:#0B1220;
+      --pmuted:#8FA0C4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#F3EEE1; --paper:#15100A; --paper-2:#1E1710; --card:#241B10; --line:#3A2E1B;
+    --muted:#B7AC92; --gold:#D9AE55; --gold-ink:#EFC873; --dark:#0E0A05; --dark-2:#1A140C;
+    --good:#5FBE85; --bad:#E0836B; --pbg:#0B1220; --pmuted:#8FA0C4;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',system-ui,sans-serif; font-size:15px; line-height:1.6; padding-inline:0;}
+  img{max-width:100%;}
+  h1,h2,h3{font-family:'Sora',system-ui,sans-serif; font-weight:700; text-wrap:balance; margin:0; letter-spacing:-0.01em;}
+  a{color:var(--gold-ink);}
+  .wrap{max-width:1020px; margin:0 auto; padding-inline:24px;}
+  .eyebrow{font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:var(--gold);}
+
+  /* ---------- HEADER ---------- */
+  header.cover{background:var(--dark); color:#F3EEE1;}
+  .cover-inner{max-width:1020px; margin:0 auto; padding:44px 24px 40px 24px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  .cover-left h1{font-size:clamp(28px,4.2vw,42px); font-weight:600; color:#fff; margin-top:10px; line-height:1.15;}
+  .cover-left h1 em{font-style:normal; color:var(--gold); display:block;}
+  .cover-left p{font-size:14.5px; color:#C9C0AC; max-width:52ch; margin-top:14px;}
+  .cover-right{text-align:right; font-size:13px; color:#B7AC92; flex-shrink:0;}
+  .cover-right b{display:block; color:#fff; font-size:15px; font-weight:700; margin-bottom:2px;}
+
+  .metabar{background:var(--paper-2); border-bottom:1px solid var(--line);}
+  .metabar-inner{max-width:1020px; margin:0 auto; padding:20px 24px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .metabar .m span{display:block; font-size:10.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold-ink); margin-bottom:5px;}
+  .metabar .m b{display:block; font-size:14px; font-weight:700; color:var(--ink);}
+  @media (max-width:680px){ .metabar-inner{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:32px 0 8px 0;}
+  .intro p{border-left:3px solid var(--gold); padding-left:16px; font-size:15.5px; color:var(--ink); max-width:74ch; margin:0;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:40px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .sec-title{display:flex; align-items:center; gap:12px; margin-bottom:22px;}
+  .sec-title .eyebrow{white-space:nowrap;}
+  .sec-title .rule{flex-grow:1; height:1px; background:var(--line);}
+  h2{font-size:22px; font-weight:600; margin-bottom:6px;}
+  .sec-sub{font-size:13.5px; color:var(--muted); max-width:70ch; margin-bottom:22px;}
+
+  /* numbered cards (architecture / compliance) */
+  .cardgrid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:680px){ .cardgrid{grid-template-columns:1fr;} }
+  .ncard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px;}
+  .ncard .badge{display:inline-flex; align-items:center; justify-content:center; width:26px; height:20px; border-radius:5px; background:var(--gold); color:var(--dark); font-size:11px; font-weight:800; margin-bottom:10px;}
+  .ncard h3{font-size:14.5px; font-weight:700; margin-bottom:5px;}
+  .ncard p{font-size:13px; color:var(--muted); margin:0;}
+
+  /* tables */
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--paper-2);}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:500px;}
+  thead th{text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gold-ink); padding:12px 16px; border-bottom:1px solid var(--line);}
+  tbody td{padding:11px 16px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.total td{font-weight:800; background:var(--card);}
+  .num{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .note{margin-top:14px; font-size:13px; color:var(--muted); padding:12px 16px; border-left:3px solid var(--gold); background:var(--card); border-radius:0 8px 8px 0;}
+
+  /* investment box */
+  .invbox{background:var(--dark); color:#F3EEE1; border-radius:12px; padding:28px 26px;}
+  .invbox .eyebrow{color:var(--gold);}
+  .invbox .amount{font-family:'Sora',system-ui,sans-serif; font-weight:800; font-size:clamp(32px,5.5vw,46px); color:#fff; margin-top:8px; letter-spacing:-0.01em;}
+  .invbox .amount span{font-size:0.42em; color:var(--gold); font-weight:600; margin-left:8px;}
+  .invbox .sub{font-size:13px; color:#B7AC92; margin-top:6px;}
+  .invbox .altnote{margin-top:16px; font-size:13px; color:#E4DDC8; background:rgba(255,255,255,0.06); border-left:3px solid var(--gold); padding:12px 16px; border-radius:0 8px 8px 0;}
+
+  .plist{display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;}
+  .plist .pgroup{flex:1; min-width:220px;}
+  .plist h4{font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--gold-ink); margin:0 0 8px 0;}
+  .plist ul{margin:0; padding-left:18px; font-size:13px; color:var(--muted); display:flex; flex-direction:column; gap:5px;}
+
+  /* ---------- SCREENS (product UI palette) ---------- */
+  .profile-block{margin-bottom:34px;}
+  .profile-head{display:flex; align-items:baseline; gap:10px; margin-bottom:14px;}
+  .profile-head .pnum{font-size:11px; font-weight:800; color:var(--gold); background:var(--card); border:1px solid var(--line); border-radius:6px; padding:2px 8px;}
+  .profile-head h3{font-size:15.5px; font-weight:700; color:var(--ink);}
+  .profile-head span{font-size:12px; color:var(--muted);}
+
+  .tgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  @media (max-width:900px){ .tgrid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:680px){ .tgrid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:420px){ .tgrid{grid-template-columns:1fr;} }
+
+  .tcell{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(27,20,11,0.05);}
+  .tcell img{width:100%; height:auto; display:block; border-bottom:1px solid var(--line);}
+  .tcell .cap{padding:8px 10px 10px 10px; font-size:11px; font-weight:700; color:var(--ink); line-height:1.3;}
+
+  /* phone frame */
+  .pf{aspect-ratio:9/17.5; position:relative; overflow:hidden; background:var(--pbg); font-family:'Manrope',sans-serif;}
+  .pf .bar{position:absolute; left:0; right:0; padding:6% 7%; color:#fff;}
+  .pf .bartitle{font-size:8.5px; font-weight:800; opacity:0.7; letter-spacing:0.3px;}
+  .pf .barsub{font-size:10.5px; font-weight:700; margin-top:2px;}
+  .pf .navybar{top:0; background:var(--pnavy); border-radius:0 0 16% 16%; padding-bottom:9%;}
+  .pf .tealbar{top:0; background:var(--pteal); border-radius:0 0 16% 16%; padding-bottom:9%;}
+  .pf .darkbar{top:0; background:#0B1226; padding-bottom:4%;}
+  .pf .content{position:absolute; left:6%; right:6%; display:flex; flex-direction:column; gap:6%;}
+  .pf .card{background:#fff; border-radius:12%; padding:6% 7%;}
+  .pf .card.dark{background:#131B37;}
+  .pf .row{display:flex; align-items:center; gap:6%;}
+  .pf .chip{border-radius:40%; flex-shrink:0;}
+  .pf .bartxt{font-size:9px; color:var(--pnavy); font-weight:700;}
+  .pf .barmut{font-size:7.5px; color:var(--pmuted); margin-top:2px;}
+  .pf .pill{display:inline-block; font-size:7px; font-weight:800; padding:3% 6%; border-radius:40px;}
+  .pf .miniline{height:14%; border-radius:30%; background:#EEF1F7;}
+  .pf .bottomnav{position:absolute; left:0; right:0; bottom:0; height:11%; background:#fff; border-top:1px solid #EDF1F8;}
+
+  /* browser frame */
+  .bf{aspect-ratio:16/9.6; position:relative; overflow:hidden; background:#0F1B2E;}
+  .bf .topbar{position:absolute; top:0; left:0; right:0; height:9%; background:var(--pbg); border-bottom:1px solid #E2E7F0; display:flex; align-items:center; gap:4px; padding-left:4%;}
+  .bf .topbar .d{width:5px; height:5px; border-radius:50%; background:#D8DEEA;}
+  .bf .side{position:absolute; top:9%; left:0; bottom:0; width:22%; background:var(--pnavy);}
+  .bf .main{position:absolute; top:9%; left:22%; right:0; bottom:0; background:var(--pbg); padding:6%;}
+
+  footer{border-top:1px solid var(--line); background:var(--paper-2);}
+  .footer-inner{max-width:1020px; margin:0 auto; padding:22px 24px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-inner">
+    <div class="cover-left">
+      <span class="eyebrow">Proposta técnica</span>
+      <h1>Conecta Estudante<em>Plataforma contra a evasão escolar</em></h1>
+      <p>Reconhecimento facial, transporte monitorado e gestão pedagógica em um único sistema, para a rede estadual do Espírito Santo.</p>
+    </div>
+    <div class="cover-right">
+      <b>Secretaria de Educação — ES</b>
+      22 de setembro de 2026<br>Proposta Técnica e Comercial
+    </div>
+  </div>
+</header>
+
+<div class="metabar">
+  <div class="metabar-inner">
+    <div class="m"><span>Cliente</span><b>SEDU / Rede Estadual ES</b></div>
+    <div class="m"><span>Escopo</span><b>4 apps + 2 painéis web</b></div>
+    <div class="m"><span>Modalidade</span><b>Desenvolvimento sob contrato</b></div>
+    <div class="m"><span>Início</span><b>A combinar</b></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro">
+    <p>O problema que este projeto resolve é a evasão escolar silenciosa: alunos que saem de casa e não chegam à escola, sem que ninguém perceba a tempo. O Conecta Estudante fecha esse ciclo conectando pai, professor, secretaria e o governo do estado em uma única plataforma, pronta para operar em 200+ escolas.</p>
+  </div>
+
+  <!-- 01 ARQUITETURA -->
+  <section id="arquitetura">
+    <div class="sec-title"><span class="eyebrow">01 · Arquitetura</span><div class="rule"></div></div>
+    <h2>Arquitetura da solução</h2>
+    <p class="sec-sub">Multi-tenant desde o início, com reconhecimento facial processado na borda e um barramento de eventos conectando presença, notificação e auditoria.</p>
+    <div class="cardgrid">
+      <div class="ncard"><span class="badge">01</span><h3>Mobile — React Native (Expo)</h3><p>Uma base de código para pai/aluno, professor e motorista em iOS e Android.</p></div>
+      <div class="ncard"><span class="badge">02</span><h3>Web — Next.js + TypeScript</h3><p>Painel da secretaria e painel estadual (SEDU), com relatórios auditáveis.</p></div>
+      <div class="ncard"><span class="badge">03</span><h3>Backend — NestJS + PostgreSQL</h3><p>Multi-tenant por tenant_id: estado → município → escola → turma → aluno.</p></div>
+      <div class="ncard"><span class="badge">04</span><h3>Eventos — RabbitMQ / SQS</h3><p>Um evento de presença alimenta notificação, registro e auditoria em paralelo.</p></div>
+      <div class="ncard"><span class="badge">05</span><h3>Biometria — matching no terminal</h3><p>O reconhecimento roda no equipamento da portaria; a nuvem recebe só o evento.</p></div>
+      <div class="ncard"><span class="badge">06</span><h3>GPS — rastreador veicular</h3><p>Fonte de verdade é o ônibus, não o celular do aluno — mais confiável e menos exposição de dados sensíveis.</p></div>
+    </div>
+    <div class="note">Toda leitura de dado biométrico, geolocalização ou CFTV passa por um serviço de auditoria dedicado — sustenta a conformidade LGPD (art. 11) diante da SEDU.</div>
+  </section>
+
+  <!-- 02 MODELO DE DADOS -->
+  <section id="dados">
+    <div class="sec-title"><span class="eyebrow">02 · Dados</span><div class="rule"></div></div>
+    <h2>Modelo de dados</h2>
+    <p class="sec-sub">Sete domínios cobrem toda a operação, da tenancy do estado até o aluno.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Domínio</th><th>Entidades principais</th></tr></thead>
+        <tbody>
+          <tr><td>Organização / Tenancy</td><td>Estado, Município (tenant raiz), Escola, Turma</td></tr>
+          <tr><td>Identidade</td><td>Usuário (role único), Aluno, Responsável-Aluno, Professor-Turma</td></tr>
+          <tr><td>Biometria / Presença</td><td>Template Biométrico, Consentimento LGPD, Evento de Presença</td></tr>
+          <tr><td>Acadêmico</td><td>Disciplina, Aula, Nota, Frequência por Aula</td></tr>
+          <tr><td>Transporte</td><td>Veículo, Rota, Aluno-Rota, Posição GPS, Evento de Embarque</td></tr>
+          <tr><td>CFTV / Mídia</td><td>Câmera, Log de Acesso à Câmera</td></tr>
+          <tr><td>Auditoria (transversal)</td><td>Audit Log — toda leitura de dado sensível</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="telas">
+    <div class="sec-title"><span class="eyebrow">03 · Interface</span><div class="rule"></div></div>
+    <h2>Telas do MVP — 25 telas</h2>
+    <p class="sec-sub">Capturas reais do protótipo já desenhado, cobrindo os cinco perfis do sistema.</p>
+
+    <div class="profile-block">
+      <div class="profile-head"><span class="pnum">9 telas</span><h3>App Pai/Aluno</h3></div>
+      <div class="tgrid">
+        <div class="tcell"><img src="images/pai-consentimento.png" alt="Onboarding e consentimento LGPD"><div class="cap">Onboarding & Consentimento LGPD</div></div>
+        <div class="tcell"><img src="images/pai-inicio.png" alt="Início — status facial e presença"><div class="cap">Início — status facial e presença</div></div>
+        <div class="tcell"><img src="images/pai-boletim.png" alt="Boletim e grade"><div class="cap">Boletim & grade</div></div>
+        <div class="tcell"><img src="images/pai-camera.png" alt="Câmera da sala CFTV"><div class="cap">Câmera da sala (CFTV)</div></div>
+        <div class="tcell"><img src="images/pai-notificacao.png" alt="Detalhe da notificação"><div class="cap">Detalhe da notificação</div></div>
+        <div class="tcell"><img src="images/pai-comunicados.png" alt="Comunicados da escola"><div class="cap">Comunicados da escola</div></div>
+        <div class="tcell"><img src="images/pai-filhos.png" alt="Meus filhos"><div class="cap">Meus filhos</div></div>
+        <div class="tcell"><img src="images/pai-perfil.png" alt="Perfil e privacidade"><div class="cap">Perfil & privacidade</div></div>
+        <div class="tcell"><img src="images/terminal-facial.png" alt="Terminal facial da portaria"><div class="cap">Terminal facial — portaria</div></div>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <div class="profile-head"><span class="pnum">7 telas</span><h3>App Motorista & Professor</h3></div>
+      <div class="tgrid">
+        <div class="tcell"><img src="images/motorista-rota.png" alt="Motorista — rota ativa"><div class="cap">Motorista — rota ativa</div></div>
+        <div class="tcell"><img src="images/professor-agenda.png" alt="Agenda do dia"><div class="cap">Agenda do dia</div></div>
+        <div class="tcell"><img src="images/professor-aula.png" alt="Chamada e aula"><div class="cap">Chamada e aula</div></div>
+        <div class="tcell"><img src="images/professor-notas.png" alt="Lançar notas"><div class="cap">Lançar notas</div></div>
+        <div class="tcell"><img src="images/professor-diario.png" alt="Diário de classe"><div class="cap">Diário de classe</div></div>
+        <div class="tcell"><img src="images/professor-perfil-aluno.png" alt="Perfil do aluno"><div class="cap">Perfil do aluno</div></div>
+        <div class="tcell"><img src="images/professor-comunicado.png" alt="Novo comunicado"><div class="cap">Novo comunicado</div></div>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <div class="profile-head"><span class="pnum">7 telas</span><h3>Web Secretaria (acesso total)</h3></div>
+      <div class="tgrid">
+        <div class="tcell"><img src="images/secretaria-dashboard.png" alt="Dashboard geral"><div class="cap">Dashboard geral</div></div>
+        <div class="tcell"><img src="images/secretaria-alunos.png" alt="Cadastro e enrolamento biométrico"><div class="cap">Cadastro & enrolamento biométrico</div></div>
+        <div class="tcell"><img src="images/secretaria-turmas.png" alt="Turmas e professores"><div class="cap">Turmas & professores</div></div>
+        <div class="tcell"><img src="images/secretaria-consentimentos.png" alt="Consentimentos LGPD"><div class="cap">Consentimentos LGPD</div></div>
+        <div class="tcell"><img src="images/secretaria-evasao.png" alt="Relatório de evasão"><div class="cap">Relatório de evasão</div></div>
+        <div class="tcell"><img src="images/secretaria-frota.png" alt="Frota e rotas"><div class="cap">Frota & rotas</div></div>
+        <div class="tcell"><img src="images/secretaria-terminais.png" alt="Terminais e câmeras"><div class="cap">Terminais & câmeras</div></div>
+      </div>
+    </div>
+
+    <div class="profile-block" style="margin-bottom:0;">
+      <div class="profile-head"><span class="pnum">2 telas</span><h3>Web SEDU (estadual)</h3></div>
+      <div class="tgrid">
+        <div class="tcell"><img src="images/sedu-dashboard.png" alt="Dashboard estadual — 200 escolas"><div class="cap">Dashboard estadual (200 escolas)</div></div>
+        <div class="tcell"><img src="images/sedu-auditoria.png" alt="Auditoria de acesso a dados sensíveis"><div class="cap">Auditoria de acesso a dados sensíveis</div></div>
+      </div>
+    </div>
+
+  </section>
+  </section>
+
+  <!-- 04 INVESTIMENTO -->
+  <section id="investimento">
+    <div class="sec-title"><span class="eyebrow">04 · Comercial</span><div class="rule"></div></div>
+    <h2>Investimento — Desenvolvimento</h2>
+    <div class="invbox" style="margin-top:20px;">
+      <span class="eyebrow">Investimento</span>
+      <div class="amount">R$ 100.000<span>total · construção e mão de obra</span></div>
+      <div class="sub">MVP completo: 4 apps móveis + 2 painéis web · manutenção mensal a combinar</div>
+      <div class="altnote">Valor sujeito a revisão conforme detalhamento final de escopo. Alternativa comercial: em vez de valor fechado, cobrança de um percentual sobre o orçamento disponibilizado pela prefeitura/estado para o projeto — a definir conforme o modelo de contratação (licitação, credenciamento ou contrato direto).</div>
+    </div>
+    <div class="plist">
+      <div class="pgroup"><h4>Incluso no valor</h4><ul>
+        <li>Backend multi-tenant completo</li>
+        <li>Apps: pai/aluno, professor, motorista</li>
+        <li>Web: secretaria e painel estadual</li>
+        <li>Integração facial (SDK) e GPS veicular</li>
+        <li>Fluxo de consentimento LGPD e auditoria</li>
+        <li>Homologação + 1º ambiente de produção</li>
+      </ul></div>
+      <div class="pgroup"><h4>Fora do escopo</h4><ul>
+        <li>Custos recorrentes de infraestrutura</li>
+        <li>Taxas de publicação nas lojas</li>
+        <li>Equipamentos físicos</li>
+        <li>Manutenção mensal pós-entrega</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 05 FERRAMENTAS -->
+  <section id="ferramentas">
+    <div class="sec-title"><span class="eyebrow">05 · Recorrente</span><div class="rule"></div></div>
+    <h2>Ferramentas e infraestrutura</h2>
+    <p class="sec-sub">Estimativas de mercado para a operação inicial — sujeitas a cotação formal antes da assinatura.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Ferramenta / serviço</th><th>Finalidade</th><th>Estimativa mensal</th></tr></thead>
+        <tbody>
+          <tr><td>Cloud (AWS/Azure)</td><td>Backend, banco gerenciado, storage</td><td class="num">R$ 1.500 – R$ 4.000</td></tr>
+          <tr><td>SDK de reconhecimento facial</td><td>Matching biométrico</td><td class="num">R$ 800 – R$ 2.500</td></tr>
+          <tr><td>Push (Firebase Cloud Messaging)</td><td>Notificação ao app do pai</td><td class="num">Gratuito*</td></tr>
+          <tr><td>SMS/WhatsApp API</td><td>Fallback sem app</td><td class="num">R$ 300 – R$ 1.000</td></tr>
+          <tr><td>Mapas (Google Maps Platform)</td><td>Rota do ônibus</td><td class="num">R$ 300 – R$ 900</td></tr>
+          <tr><td>Domínio + SSL</td><td>Web secretaria/SEDU</td><td class="num">R$ 50 – R$ 150</td></tr>
+          <tr><td>Observabilidade</td><td>Erros e uptime</td><td class="num">R$ 200 – R$ 600</td></tr>
+          <tr class="total"><td colspan="2">Total estimado inicial</td><td class="num">R$ 3.150 – R$ 9.150 / mês</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px; font-size:12px; color:var(--muted);">*na faixa de uso inicial. Escala com o número de escolas ativas.</p>
+  </section>
+
+  <!-- 06 LOJAS -->
+  <section id="lojas">
+    <div class="sec-title"><span class="eyebrow">06 · Publicação</span><div class="rule"></div></div>
+    <h2>Publicação nas lojas</h2>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Item</th><th>Valor</th><th>Recorrência</th></tr></thead>
+        <tbody>
+          <tr><td>Apple Developer Program (App Store)</td><td class="num">~US$ 99/ano (≈ R$ 550–600)</td><td>Anual</td></tr>
+          <tr><td>Google Play Console (Play Store)</td><td class="num">US$ 25</td><td>Única vez</td></tr>
+          <tr><td>D-U-N-S Number (conta empresarial Apple)</td><td class="num">Gratuito</td><td>1–2 semanas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Recomenda-se abrir as contas de desenvolvedor em nome do cliente (estado/SEDU) — garante a propriedade do app nas lojas independentemente do fornecedor.</div>
+  </section>
+
+  <!-- 07 EQUIPAMENTOS -->
+  <section id="equipamentos">
+    <div class="sec-title"><span class="eyebrow">07 · Hardware</span><div class="rule"></div></div>
+    <h2>Equipamentos a adquirir pelo cliente</h2>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Equipamento</th><th>Fornecedor sugerido</th><th>Preço/unidade</th></tr></thead>
+        <tbody>
+          <tr><td>Terminal de reconhecimento facial</td><td>Intelbras iDFace / Hikvision DS-K1T</td><td class="num">R$ 2.500 – R$ 5.000</td></tr>
+          <tr><td>Catraca com bloqueio físico (opcional)</td><td>Intelbras iDBlock ou similar</td><td class="num">R$ 1.800 – R$ 3.500</td></tr>
+          <tr><td>Rastreador veicular GPS</td><td>Positron, Autotrac ou homologado</td><td class="num">R$ 250–600 + R$ 30–60/mês</td></tr>
+          <tr><td>Câmera IP (CFTV)</td><td>Intelbras / Hikvision, linha IP</td><td class="num">R$ 400 – R$ 800</td></tr>
+          <tr><td>NVR (gravação CFTV)</td><td>Intelbras NVD / Hikvision DS-7600</td><td class="num">R$ 1.200 – R$ 3.000</td></tr>
+          <tr><td>Rede dedicada (roteador/switch)</td><td>Ubiquiti ou similar</td><td class="num">R$ 800 – R$ 1.500</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Recomenda-se formalizar essa lista com um parceiro de integração de hardware para preço fechado por escola no edital.</div>
+  </section>
+
+  <!-- 08 COMPLIANCE -->
+  <section id="compliance">
+    <div class="sec-title"><span class="eyebrow">08 · Governança</span><div class="rule"></div></div>
+    <h2>Compliance e recomendações</h2>
+    <div class="cardgrid">
+      <div class="ncard"><span class="badge">01</span><h3>Consentimento LGPD</h3><p>Termo assinado pelos responsáveis antes de qualquer coleta — já modelado no onboarding do app.</p></div>
+      <div class="ncard"><span class="badge">02</span><h3>Encarregado de dados (DPO)</h3><p>Deve ser nomeado pelo cliente antes do go-live; a plataforma fornece o log de auditoria necessário.</p></div>
+      <div class="ncard"><span class="badge">03</span><h3>Propriedade dos dados</h3><p>Cláusula contratual: dados dos alunos pertencem ao poder público, com portabilidade ao fim do contrato.</p></div>
+      <div class="ncard"><span class="badge">04</span><h3>Piloto controlado</h3><p>Iniciar com 3–5 escolas por 60–90 dias antes de escalar para as 200.</p></div>
+    </div>
+  </section>
+
+  <!-- 09 CRONOGRAMA -->
+  <section id="cronograma">
+    <div class="sec-title"><span class="eyebrow">09 · Execução</span><div class="rule"></div></div>
+    <h2>Cronograma e próximos passos</h2>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Fase</th><th>Duração</th><th>Entregável</th></tr></thead>
+        <tbody>
+          <tr><td>1. Detalhamento e contrato</td><td class="num">1–2 semanas</td><td>Escopo travado</td></tr>
+          <tr><td>2. Infra e backend core</td><td class="num">3–4 semanas</td><td>Multi-tenant em produção</td></tr>
+          <tr><td>3. Apps e painéis</td><td class="num">8–10 semanas</td><td>Produto funcional</td></tr>
+          <tr><td>4. Integração facial + GPS + CFTV</td><td class="num">3–4 semanas</td><td>Pipeline ponta a ponta</td></tr>
+          <tr><td>5. Piloto (3–5 escolas)</td><td class="num">8–12 semanas</td><td>Validação real</td></tr>
+          <tr><td>6. Rollout estadual</td><td class="num">conforme SEDU</td><td>200 escolas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>Johni Michael Gomes dos Santos · CNPJ 65.002.492/0001-08</span>
+    <span>22/09/2026</span>
+  </div>
+</footer>
+</body>
+</html>
