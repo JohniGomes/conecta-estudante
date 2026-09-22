@@ -125,14 +125,13 @@
   .profile-head h3{font-size:15.5px; font-weight:700; color:var(--ink);}
   .profile-head span{font-size:12px; color:var(--muted);}
 
-  .tgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  @media (max-width:760px){ .tgrid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:480px){ .tgrid{grid-template-columns:1fr;} }
-
-  .tcell{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(27,20,11,0.05);}
-  .tcell img{width:100%; height:auto; display:block; border-bottom:1px solid var(--line); image-rendering:-webkit-optimize-contrast;}
-  .tcell img.shot-phone{width:auto; max-width:100%; margin:0 auto; background:#fff;}
-  .tcell .cap{padding:10px 12px 12px 12px; font-size:13px; font-weight:700; color:var(--ink); line-height:1.3;}
+  .pdfcard{display:flex; align-items:center; gap:18px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; flex-wrap:wrap;}
+  .pdfcard-icon{width:52px; height:52px; border-radius:12px; background:var(--dark); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .pdfcard-body{flex-grow:1; min-width:200px;}
+  .pdfcard-body h3{font-family:'Sora',system-ui,sans-serif; font-size:15px; font-weight:700; margin:0 0 4px 0; color:var(--ink);}
+  .pdfcard-body p{font-size:13px; color:var(--muted); margin:0;}
+  .pdfcard-btn{flex-shrink:0; background:var(--dark); color:#fff; text-decoration:none; font-size:13px; font-weight:700; padding:12px 22px; border-radius:10px;}
+  .pdfcard-btn:hover{background:var(--gold); color:var(--dark);}
 
   /* phone frame */
   .pf{aspect-ratio:9/17.5; position:relative; overflow:hidden; background:var(--pbg); font-family:'Manrope',sans-serif;}
@@ -230,54 +229,17 @@
 
   <section id="telas">
     <div class="sec-title"><span class="eyebrow">03 · Interface</span><div class="rule"></div></div>
-    <h2>Telas do MVP: 23 telas</h2>
-    <p class="sec-sub">Capturas reais do protótipo já desenhado, cobrindo os cinco perfis do sistema. <a href="telas/index.html">Ver todas as 25 telas &rarr;</a></p>
-
-    <div class="profile-block">
-      <div class="profile-head"><span class="pnum">9 telas</span><h3>App Pai/Aluno</h3></div>
-      <div class="tgrid">
-        <div class="tcell"><img class="shot-phone" src="images/pai-consentimento.png" alt="Onboarding e consentimento LGPD"><div class="cap">Onboarding & Consentimento LGPD</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-inicio.png" alt="Início: status facial e presença"><div class="cap">Início: status facial e presença</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-boletim.png" alt="Boletim e grade"><div class="cap">Boletim & grade</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-camera.png" alt="Câmera da sala CFTV"><div class="cap">Câmera da sala (CFTV)</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-notificacao.png" alt="Detalhe da notificação"><div class="cap">Detalhe da notificação</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-comunicados.png" alt="Comunicados da escola"><div class="cap">Comunicados da escola</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-filhos.png" alt="Meus filhos"><div class="cap">Meus filhos</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/pai-perfil.png" alt="Perfil e privacidade"><div class="cap">Perfil & privacidade</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/terminal-facial.png" alt="Terminal facial da portaria"><div class="cap">Terminal facial: portaria</div></div>
+    <h2>Telas do MVP</h2>
+    <p class="sec-sub">Protótipo completo desenhado para os cinco perfis do sistema: pai/aluno, motorista, professor, secretaria e SEDU (estadual).</p>
+    <div class="pdfcard">
+      <div class="pdfcard-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg>
       </div>
-    </div>
-
-    <div class="profile-block">
-      <div class="profile-head"><span class="pnum">6 telas</span><h3>App Motorista & Professor</h3></div>
-      <div class="tgrid">
-        <div class="tcell"><img class="shot-phone" src="images/motorista-rota.png" alt="Motorista: rota ativa"><div class="cap">Motorista: rota ativa</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/professor-agenda.png" alt="Agenda do dia"><div class="cap">Agenda do dia</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/professor-aula.png" alt="Chamada e aula"><div class="cap">Chamada e aula</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/professor-notas.png" alt="Lançar notas"><div class="cap">Lançar notas</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/professor-diario.png" alt="Diário de classe"><div class="cap">Diário de classe</div></div>
-        <div class="tcell"><img class="shot-phone" src="images/professor-perfil-aluno.png" alt="Perfil do aluno"><div class="cap">Perfil do aluno</div></div>
+      <div class="pdfcard-body">
+        <h3>Conecta Estudante — Telas MVP</h3>
+        <p>Documento em PDF com todas as telas do protótipo, organizadas por perfil.</p>
       </div>
-    </div>
-
-    <div class="profile-block">
-      <div class="profile-head"><span class="pnum">6 telas</span><h3>Web Secretaria (acesso total)</h3></div>
-      <div class="tgrid">
-        <div class="tcell"><img src="images/secretaria-dashboard.png" alt="Dashboard geral"><div class="cap">Dashboard geral</div></div>
-        <div class="tcell"><img src="images/secretaria-alunos.png" alt="Cadastro e enrolamento biométrico"><div class="cap">Cadastro & enrolamento biométrico</div></div>
-        <div class="tcell"><img src="images/secretaria-consentimentos.png" alt="Consentimentos LGPD"><div class="cap">Consentimentos LGPD</div></div>
-        <div class="tcell"><img src="images/secretaria-evasao.png" alt="Relatório de evasão"><div class="cap">Relatório de evasão</div></div>
-        <div class="tcell"><img src="images/secretaria-frota.png" alt="Frota e rotas"><div class="cap">Frota & rotas</div></div>
-        <div class="tcell"><img src="images/secretaria-terminais.png" alt="Terminais e câmeras"><div class="cap">Terminais & câmeras</div></div>
-      </div>
-    </div>
-
-    <div class="profile-block" style="margin-bottom:0;">
-      <div class="profile-head"><span class="pnum">2 telas</span><h3>Web SEDU (estadual)</h3></div>
-      <div class="tgrid">
-        <div class="tcell"><img src="images/sedu-dashboard.png" alt="Dashboard estadual: 200 escolas"><div class="cap">Dashboard estadual (200 escolas)</div></div>
-        <div class="tcell"><img src="images/sedu-auditoria.png" alt="Auditoria de acesso a dados sensíveis"><div class="cap">Auditoria de acesso a dados sensíveis</div></div>
-      </div>
+      <a class="pdfcard-btn" href="Conecta-Estudante-Telas-MVP.pdf" target="_blank" rel="noopener">Abrir PDF</a>
     </div>
 
   </section>
