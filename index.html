@@ -56,12 +56,12 @@
   img{max-width:100%;}
   h1,h2,h3{font-family:'Sora',system-ui,sans-serif; font-weight:700; text-wrap:balance; margin:0; letter-spacing:-0.01em;}
   a{color:var(--gold-ink);}
-  .wrap{max-width:1020px; margin:0 auto; padding-inline:24px;}
+  .wrap{max-width:1180px; margin:0 auto; padding-inline:24px;}
   .eyebrow{font-size:11px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:var(--gold);}
 
   /* ---------- HEADER ---------- */
   header.cover{background:var(--dark); color:#F3EEE1;}
-  .cover-inner{max-width:1020px; margin:0 auto; padding:44px 24px 40px 24px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  .cover-inner{max-width:1180px; margin:0 auto; padding:44px 24px 40px 24px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
   .cover-left h1{font-size:clamp(28px,4.2vw,42px); font-weight:600; color:#fff; margin-top:10px; line-height:1.15;}
   .cover-left h1 em{font-style:normal; color:var(--gold); display:block;}
   .cover-left p{font-size:14.5px; color:#C9C0AC; max-width:52ch; margin-top:14px;}
@@ -69,7 +69,7 @@
   .cover-right b{display:block; color:#fff; font-size:15px; font-weight:700; margin-bottom:2px;}
 
   .metabar{background:var(--paper-2); border-bottom:1px solid var(--line);}
-  .metabar-inner{max-width:1020px; margin:0 auto; padding:20px 24px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .metabar-inner{max-width:1180px; margin:0 auto; padding:20px 24px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
   .metabar .m span{display:block; font-size:10.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold-ink); margin-bottom:5px;}
   .metabar .m b{display:block; font-size:14px; font-weight:700; color:var(--ink);}
   @media (max-width:680px){ .metabar-inner{grid-template-columns:repeat(2,1fr);} }
@@ -125,14 +125,13 @@
   .profile-head h3{font-size:15.5px; font-weight:700; color:var(--ink);}
   .profile-head span{font-size:12px; color:var(--muted);}
 
-  .tgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
-  @media (max-width:900px){ .tgrid{grid-template-columns:repeat(3,1fr);} }
-  @media (max-width:680px){ .tgrid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:420px){ .tgrid{grid-template-columns:1fr;} }
+  .tgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:760px){ .tgrid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .tgrid{grid-template-columns:1fr;} }
 
   .tcell{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(27,20,11,0.05);}
   .tcell img{width:100%; height:auto; display:block; border-bottom:1px solid var(--line);}
-  .tcell .cap{padding:8px 10px 10px 10px; font-size:11px; font-weight:700; color:var(--ink); line-height:1.3;}
+  .tcell .cap{padding:10px 12px 12px 12px; font-size:13px; font-weight:700; color:var(--ink); line-height:1.3;}
 
   /* phone frame */
   .pf{aspect-ratio:9/17.5; position:relative; overflow:hidden; background:var(--pbg); font-family:'Manrope',sans-serif;}
@@ -161,7 +160,7 @@
   .bf .main{position:absolute; top:9%; left:22%; right:0; bottom:0; background:var(--pbg); padding:6%;}
 
   footer{border-top:1px solid var(--line); background:var(--paper-2);}
-  .footer-inner{max-width:1020px; margin:0 auto; padding:22px 24px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  .footer-inner{max-width:1180px; margin:0 auto; padding:22px 24px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
 </style>
 </head>
 <body>
@@ -174,7 +173,7 @@
       <p>Reconhecimento facial, transporte monitorado e gestão pedagógica em um único sistema, para a rede estadual do Espírito Santo.</p>
     </div>
     <div class="cover-right">
-      <b>Secretaria de Educação — ES</b>
+      <b>Grupo CNET Tecnologia e J&T Company</b>
       22 de setembro de 2026<br>Proposta Técnica e Comercial
     </div>
   </div>
@@ -183,7 +182,7 @@
 <div class="metabar">
   <div class="metabar-inner">
     <div class="m"><span>Cliente</span><b>SEDU / Rede Estadual ES</b></div>
-    <div class="m"><span>Escopo</span><b>4 apps + 2 painéis web</b></div>
+    <div class="m"><span>Escopo</span><b>Ecossistema Completo</b></div>
     <div class="m"><span>Modalidade</span><b>Desenvolvimento sob contrato</b></div>
     <div class="m"><span>Início</span><b>A combinar</b></div>
   </div>
@@ -191,24 +190,20 @@
 
 <div class="wrap">
 
-  <div class="intro">
-    <p>O problema que este projeto resolve é a evasão escolar silenciosa: alunos que saem de casa e não chegam à escola, sem que ninguém perceba a tempo. O Conecta Estudante fecha esse ciclo conectando pai, professor, secretaria e o governo do estado em uma única plataforma, pronta para operar em 200+ escolas.</p>
-  </div>
-
   <!-- 01 ARQUITETURA -->
   <section id="arquitetura">
     <div class="sec-title"><span class="eyebrow">01 · Arquitetura</span><div class="rule"></div></div>
     <h2>Arquitetura da solução</h2>
     <p class="sec-sub">Multi-tenant desde o início, com reconhecimento facial processado na borda e um barramento de eventos conectando presença, notificação e auditoria.</p>
     <div class="cardgrid">
-      <div class="ncard"><span class="badge">01</span><h3>Mobile — React Native (Expo)</h3><p>Uma base de código para pai/aluno, professor e motorista em iOS e Android.</p></div>
-      <div class="ncard"><span class="badge">02</span><h3>Web — Next.js + TypeScript</h3><p>Painel da secretaria e painel estadual (SEDU), com relatórios auditáveis.</p></div>
-      <div class="ncard"><span class="badge">03</span><h3>Backend — NestJS + PostgreSQL</h3><p>Multi-tenant por tenant_id: estado → município → escola → turma → aluno.</p></div>
-      <div class="ncard"><span class="badge">04</span><h3>Eventos — RabbitMQ / SQS</h3><p>Um evento de presença alimenta notificação, registro e auditoria em paralelo.</p></div>
-      <div class="ncard"><span class="badge">05</span><h3>Biometria — matching no terminal</h3><p>O reconhecimento roda no equipamento da portaria; a nuvem recebe só o evento.</p></div>
-      <div class="ncard"><span class="badge">06</span><h3>GPS — rastreador veicular</h3><p>Fonte de verdade é o ônibus, não o celular do aluno — mais confiável e menos exposição de dados sensíveis.</p></div>
+      <div class="ncard"><span class="badge">01</span><h3>Mobile: React Native (Expo)</h3><p>Uma base de código para pai/aluno, professor e motorista em iOS e Android.</p></div>
+      <div class="ncard"><span class="badge">02</span><h3>Web: Next.js + TypeScript</h3><p>Painel da secretaria e painel estadual (SEDU), com relatórios auditáveis.</p></div>
+      <div class="ncard"><span class="badge">03</span><h3>Backend: NestJS + PostgreSQL</h3><p>Multi-tenant por tenant_id: estado → município → escola → turma → aluno.</p></div>
+      <div class="ncard"><span class="badge">04</span><h3>Eventos: RabbitMQ / SQS</h3><p>Um evento de presença alimenta notificação, registro e auditoria em paralelo.</p></div>
+      <div class="ncard"><span class="badge">05</span><h3>Biometria: matching no terminal</h3><p>O reconhecimento roda no equipamento da portaria; a nuvem recebe só o evento.</p></div>
+      <div class="ncard"><span class="badge">06</span><h3>GPS: rastreador veicular</h3><p>Fonte de verdade é o ônibus, não o celular do aluno, o que é mais confiável e reduz exposição de dados sensíveis.</p></div>
     </div>
-    <div class="note">Toda leitura de dado biométrico, geolocalização ou CFTV passa por um serviço de auditoria dedicado — sustenta a conformidade LGPD (art. 11) diante da SEDU.</div>
+    <div class="note">Toda leitura de dado biométrico, geolocalização ou CFTV passa por um serviço de auditoria dedicado, o que sustenta a conformidade LGPD (art. 11) diante da SEDU.</div>
   </section>
 
   <!-- 02 MODELO DE DADOS -->
@@ -226,7 +221,7 @@
           <tr><td>Acadêmico</td><td>Disciplina, Aula, Nota, Frequência por Aula</td></tr>
           <tr><td>Transporte</td><td>Veículo, Rota, Aluno-Rota, Posição GPS, Evento de Embarque</td></tr>
           <tr><td>CFTV / Mídia</td><td>Câmera, Log de Acesso à Câmera</td></tr>
-          <tr><td>Auditoria (transversal)</td><td>Audit Log — toda leitura de dado sensível</td></tr>
+          <tr><td>Auditoria (transversal)</td><td>Audit Log: toda leitura de dado sensível</td></tr>
         </tbody>
       </table>
     </div>
@@ -234,43 +229,41 @@
 
   <section id="telas">
     <div class="sec-title"><span class="eyebrow">03 · Interface</span><div class="rule"></div></div>
-    <h2>Telas do MVP — 25 telas</h2>
+    <h2>Telas do MVP: 23 telas</h2>
     <p class="sec-sub">Capturas reais do protótipo já desenhado, cobrindo os cinco perfis do sistema.</p>
 
     <div class="profile-block">
       <div class="profile-head"><span class="pnum">9 telas</span><h3>App Pai/Aluno</h3></div>
       <div class="tgrid">
         <div class="tcell"><img src="images/pai-consentimento.png" alt="Onboarding e consentimento LGPD"><div class="cap">Onboarding & Consentimento LGPD</div></div>
-        <div class="tcell"><img src="images/pai-inicio.png" alt="Início — status facial e presença"><div class="cap">Início — status facial e presença</div></div>
+        <div class="tcell"><img src="images/pai-inicio.png" alt="Início: status facial e presença"><div class="cap">Início: status facial e presença</div></div>
         <div class="tcell"><img src="images/pai-boletim.png" alt="Boletim e grade"><div class="cap">Boletim & grade</div></div>
         <div class="tcell"><img src="images/pai-camera.png" alt="Câmera da sala CFTV"><div class="cap">Câmera da sala (CFTV)</div></div>
         <div class="tcell"><img src="images/pai-notificacao.png" alt="Detalhe da notificação"><div class="cap">Detalhe da notificação</div></div>
         <div class="tcell"><img src="images/pai-comunicados.png" alt="Comunicados da escola"><div class="cap">Comunicados da escola</div></div>
         <div class="tcell"><img src="images/pai-filhos.png" alt="Meus filhos"><div class="cap">Meus filhos</div></div>
         <div class="tcell"><img src="images/pai-perfil.png" alt="Perfil e privacidade"><div class="cap">Perfil & privacidade</div></div>
-        <div class="tcell"><img src="images/terminal-facial.png" alt="Terminal facial da portaria"><div class="cap">Terminal facial — portaria</div></div>
+        <div class="tcell"><img src="images/terminal-facial.png" alt="Terminal facial da portaria"><div class="cap">Terminal facial: portaria</div></div>
       </div>
     </div>
 
     <div class="profile-block">
-      <div class="profile-head"><span class="pnum">7 telas</span><h3>App Motorista & Professor</h3></div>
+      <div class="profile-head"><span class="pnum">6 telas</span><h3>App Motorista & Professor</h3></div>
       <div class="tgrid">
-        <div class="tcell"><img src="images/motorista-rota.png" alt="Motorista — rota ativa"><div class="cap">Motorista — rota ativa</div></div>
+        <div class="tcell"><img src="images/motorista-rota.png" alt="Motorista: rota ativa"><div class="cap">Motorista: rota ativa</div></div>
         <div class="tcell"><img src="images/professor-agenda.png" alt="Agenda do dia"><div class="cap">Agenda do dia</div></div>
         <div class="tcell"><img src="images/professor-aula.png" alt="Chamada e aula"><div class="cap">Chamada e aula</div></div>
         <div class="tcell"><img src="images/professor-notas.png" alt="Lançar notas"><div class="cap">Lançar notas</div></div>
         <div class="tcell"><img src="images/professor-diario.png" alt="Diário de classe"><div class="cap">Diário de classe</div></div>
         <div class="tcell"><img src="images/professor-perfil-aluno.png" alt="Perfil do aluno"><div class="cap">Perfil do aluno</div></div>
-        <div class="tcell"><img src="images/professor-comunicado.png" alt="Novo comunicado"><div class="cap">Novo comunicado</div></div>
       </div>
     </div>
 
     <div class="profile-block">
-      <div class="profile-head"><span class="pnum">7 telas</span><h3>Web Secretaria (acesso total)</h3></div>
+      <div class="profile-head"><span class="pnum">6 telas</span><h3>Web Secretaria (acesso total)</h3></div>
       <div class="tgrid">
         <div class="tcell"><img src="images/secretaria-dashboard.png" alt="Dashboard geral"><div class="cap">Dashboard geral</div></div>
         <div class="tcell"><img src="images/secretaria-alunos.png" alt="Cadastro e enrolamento biométrico"><div class="cap">Cadastro & enrolamento biométrico</div></div>
-        <div class="tcell"><img src="images/secretaria-turmas.png" alt="Turmas e professores"><div class="cap">Turmas & professores</div></div>
         <div class="tcell"><img src="images/secretaria-consentimentos.png" alt="Consentimentos LGPD"><div class="cap">Consentimentos LGPD</div></div>
         <div class="tcell"><img src="images/secretaria-evasao.png" alt="Relatório de evasão"><div class="cap">Relatório de evasão</div></div>
         <div class="tcell"><img src="images/secretaria-frota.png" alt="Frota e rotas"><div class="cap">Frota & rotas</div></div>
@@ -281,23 +274,22 @@
     <div class="profile-block" style="margin-bottom:0;">
       <div class="profile-head"><span class="pnum">2 telas</span><h3>Web SEDU (estadual)</h3></div>
       <div class="tgrid">
-        <div class="tcell"><img src="images/sedu-dashboard.png" alt="Dashboard estadual — 200 escolas"><div class="cap">Dashboard estadual (200 escolas)</div></div>
+        <div class="tcell"><img src="images/sedu-dashboard.png" alt="Dashboard estadual: 200 escolas"><div class="cap">Dashboard estadual (200 escolas)</div></div>
         <div class="tcell"><img src="images/sedu-auditoria.png" alt="Auditoria de acesso a dados sensíveis"><div class="cap">Auditoria de acesso a dados sensíveis</div></div>
       </div>
     </div>
 
   </section>
-  </section>
 
   <!-- 04 INVESTIMENTO -->
   <section id="investimento">
     <div class="sec-title"><span class="eyebrow">04 · Comercial</span><div class="rule"></div></div>
-    <h2>Investimento — Desenvolvimento</h2>
+    <h2>Investimento: Desenvolvimento</h2>
     <div class="invbox" style="margin-top:20px;">
       <span class="eyebrow">Investimento</span>
       <div class="amount">R$ 100.000<span>total · construção e mão de obra</span></div>
       <div class="sub">MVP completo: 4 apps móveis + 2 painéis web · manutenção mensal a combinar</div>
-      <div class="altnote">Valor sujeito a revisão conforme detalhamento final de escopo. Alternativa comercial: em vez de valor fechado, cobrança de um percentual sobre o orçamento disponibilizado pela prefeitura/estado para o projeto — a definir conforme o modelo de contratação (licitação, credenciamento ou contrato direto).</div>
+      <div class="altnote">Valor sujeito a revisão conforme detalhamento final de escopo. Alternativa comercial: em vez de valor fechado, cobrança de um percentual sobre o orçamento disponibilizado pela prefeitura/estado para o projeto, a definir conforme o modelo de contratação (licitação, credenciamento ou contrato direto).</div>
     </div>
     <div class="plist">
       <div class="pgroup"><h4>Incluso no valor</h4><ul>
@@ -321,7 +313,7 @@
   <section id="ferramentas">
     <div class="sec-title"><span class="eyebrow">05 · Recorrente</span><div class="rule"></div></div>
     <h2>Ferramentas e infraestrutura</h2>
-    <p class="sec-sub">Estimativas de mercado para a operação inicial — sujeitas a cotação formal antes da assinatura.</p>
+    <p class="sec-sub">Estimativas de mercado para a operação inicial, sujeitas a cotação formal antes da assinatura.</p>
     <div class="tblwrap">
       <table>
         <thead><tr><th>Ferramenta / serviço</th><th>Finalidade</th><th>Estimativa mensal</th></tr></thead>
@@ -354,7 +346,7 @@
         </tbody>
       </table>
     </div>
-    <div class="note">Recomenda-se abrir as contas de desenvolvedor em nome do cliente (estado/SEDU) — garante a propriedade do app nas lojas independentemente do fornecedor.</div>
+    <div class="note">Recomenda-se abrir as contas de desenvolvedor em nome do cliente (estado/SEDU), o que garante a propriedade do app nas lojas independentemente do fornecedor.</div>
   </section>
 
   <!-- 07 EQUIPAMENTOS -->
@@ -382,7 +374,7 @@
     <div class="sec-title"><span class="eyebrow">08 · Governança</span><div class="rule"></div></div>
     <h2>Compliance e recomendações</h2>
     <div class="cardgrid">
-      <div class="ncard"><span class="badge">01</span><h3>Consentimento LGPD</h3><p>Termo assinado pelos responsáveis antes de qualquer coleta — já modelado no onboarding do app.</p></div>
+      <div class="ncard"><span class="badge">01</span><h3>Consentimento LGPD</h3><p>Termo assinado pelos responsáveis antes de qualquer coleta, já modelado no onboarding do app.</p></div>
       <div class="ncard"><span class="badge">02</span><h3>Encarregado de dados (DPO)</h3><p>Deve ser nomeado pelo cliente antes do go-live; a plataforma fornece o log de auditoria necessário.</p></div>
       <div class="ncard"><span class="badge">03</span><h3>Propriedade dos dados</h3><p>Cláusula contratual: dados dos alunos pertencem ao poder público, com portabilidade ao fim do contrato.</p></div>
       <div class="ncard"><span class="badge">04</span><h3>Piloto controlado</h3><p>Iniciar com 3–5 escolas por 60–90 dias antes de escalar para as 200.</p></div>
